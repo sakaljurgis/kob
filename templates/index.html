@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="post" action="{{ url_for('add') }}" class="add-form">
+  <input type="url" name="url" placeholder="https://..." required autofocus>
+  <button type="submit">Add</button>
+</form>
+
+<ul class="articles">
+{% for a in articles %}
+  <li>
+    <a class="article-title" href="{{ url_for('download', article_id=a.id) }}">{{ a.title }}</a>
+    <a class="delete" href="{{ url_for('delete_confirm', article_id=a.id, page=page) }}">Delete</a>
+  </li>
+{% else %}
+  <li class="empty">No articles yet.</li>
+{% endfor %}
+</ul>
+
+<nav class="pagination">
+  {% if page > 1 %}
+    <a class="page-btn" href="{{ url_for('index', page=page-1) }}">&larr; Prev</a>
+  {% else %}
+    <span class="page-btn disabled">&larr; Prev</span>
+  {% endif %}
+  <span class="page-info">{{ page }} / {{ total_pages }}</span>
+  {% if page < total_pages %}
+    <a class="page-btn" href="{{ url_for('index', page=page+1) }}">Next &rarr;</a>
+  {% else %}
+    <span class="page-btn disabled">Next &rarr;</span>
+  {% endif %}
+</nav>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="confirm">
+  <p>Delete this article?</p>
+  <p class="article-title">{{ article.title }}</p>
+  <form method="post" action="{{ url_for('delete_do', article_id=article.id) }}">
+    <input type="hidden" name="page" value="{{ page }}">
+    <button type="submit" class="danger">Yes, delete</button>
+  </form>
+  <a class="page-btn" href="{{ url_for('index', page=page) }}">Cancel</a>
+</div>
+{% endblock %}

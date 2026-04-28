@@ -1,0 +1,23 @@
+# app data
+data/
+testdata/
+
+# python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# editor swap files
+*.swp
+*.swo
