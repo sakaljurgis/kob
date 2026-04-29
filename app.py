@@ -57,7 +57,7 @@ def add():
     return redirect(url_for("index"))
 
 
-@app.route("/download/<article_id>")
+@app.route("/download/<article_id>.epub")
 def download(article_id):
     article = storage.get_article(article_id)
     if not article:

@@ -1,12 +1,15 @@
 * { box-sizing: border-box; }
 
+html, body {
+  width: 100%;
+  margin: 0;
+}
+
 body {
   font-family: serif;
   font-size: 1.6rem;
   line-height: 1.5;
-  margin: 0;
   padding: 1rem;
-  max-width: 100%;
 }
 
 .add-form {
